@@ -50,11 +50,22 @@ public class UsersFacade extends AbstractFacade<Users> {
     public List<Users> getUsuarios(String rol, String username, String email, String name, 
             String surname, String gender, String street, Integer number, 
             String city, String region, Integer postalCode){
+    public List<Users> getUsuarios(){
+        Query q = this.getEntityManager().createQuery("select u from Users");
+        
+        return q.getResultList();
+    }
+    
+    public List<Users> getUsuarios(String rol, String username, String name, 
+            String surname, String gender, String street, String number, 
+            String city, String region, String postalCode){
         
         String queryStr = "select u from Users u where";
         HashMap<String, Object> queryParams = new HashMap<>(); 
+        HashMap<String, String> queryParams = new HashMap<String, String>(); 
         
         if(rol != null && !rol.isEmpty()){
+        if(rol != null){
             queryStr += " u.rol = :rol";
             queryParams.put("rol", rol);
         }
@@ -73,6 +84,9 @@ public class UsersFacade extends AbstractFacade<Users> {
             }
             queryStr += " u.email like :email";
             queryParams.put("email", '%' + email + '%');
+        if(name != null){
+            queryStr += " u.name = :name";
+            queryParams.put("name", name);
         }
         
         if(name != null && !name.isEmpty()){
@@ -81,6 +95,9 @@ public class UsersFacade extends AbstractFacade<Users> {
             }
             queryStr += " u.name like :name";
             queryParams.put("name", '%' + name + '%');
+        if(surname != null){
+            queryStr += " u.surname = :surname";
+            queryParams.put("surname", surname);
         }
         
         if(surname != null && !surname.isEmpty()){
@@ -95,6 +112,7 @@ public class UsersFacade extends AbstractFacade<Users> {
             if(queryParams.size() > 0){
                 queryStr += " and";
             }
+        if(gender != null){
             queryStr += " u.gender = :gender";
             queryParams.put("gender", gender);
         }
@@ -105,6 +123,9 @@ public class UsersFacade extends AbstractFacade<Users> {
             }
             queryStr += " u.street like :street";
             queryParams.put("street", '%' + street + '%');
+        if(street != null){
+            queryStr += " u.street = :street";
+            queryParams.put("street", street);
         }
         
         if(number != null){
@@ -121,6 +142,9 @@ public class UsersFacade extends AbstractFacade<Users> {
             }
             queryStr += " u.city like :city";
             queryParams.put("city", '%' + city + '%');
+        if(city != null){
+            queryStr += " u.city = :city";
+            queryParams.put("city", city);
         }
         
         if(region != null && !region.isEmpty()){
@@ -129,6 +153,9 @@ public class UsersFacade extends AbstractFacade<Users> {
             }
             queryStr += " u.region like :region";
             queryParams.put("region", '%' + region + '%');
+        if(region != null){
+            queryStr += " u.region = :region";
+            queryParams.put("region", region);
         }
         
         if(postalCode != null){
