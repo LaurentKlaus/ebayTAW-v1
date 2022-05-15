@@ -51,6 +51,11 @@ public class Users implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID", fetch = FetchType.LAZY)
     private List<Followbids> followbidsList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
+    private List<Mensaje> mensajeList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
+    private List<Usuarioslista> usuarioslistaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -290,6 +295,7 @@ public class Users implements Serializable {
         return "Entity.Users[ userID=" + userID + " ]";
     }
     
+    // MIGUEL
     public UserDTO toDTO(){
         UserDTO dto = new UserDTO();
         dto.setUserID(userID);
@@ -313,10 +319,23 @@ public class Users implements Serializable {
     @XmlTransient
     public List<Followbids> getFollowbidsList() {
         return followbidsList;
+    public List<Usuarioslista> getUsuarioslistaList() {
+        return usuarioslistaList;
+    }
+
+    public void setUsuarioslistaList(List<Usuarioslista> usuarioslistaList) {
+        this.usuarioslistaList = usuarioslistaList;
+    }
+
+    @XmlTransient
+    public List<Mensaje> getMensajeList() {
+        return mensajeList;
     }
 
     public void setFollowbidsList(List<Followbids> followbidsList) {
         this.followbidsList = followbidsList;
+    public void setMensajeList(List<Mensaje> mensajeList) {
+        this.mensajeList = mensajeList;
     }
     
 }

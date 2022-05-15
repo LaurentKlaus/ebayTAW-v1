@@ -59,6 +59,18 @@ public class Bids implements Serializable {
     @JoinColumn(name = "userID", referencedColumnName = "userID")
     @ManyToOne(optional = false)
     private Users userID;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "price")
+    private BigDecimal price;
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
     public Bids() {
     }

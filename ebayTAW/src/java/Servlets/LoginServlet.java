@@ -3,6 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// MIGUEL JURADO VAZQUEZ Y CRISTOBAL MARTÍN ARENAS
+
 package Servlets;
 
 import DTO.UserDTO;
@@ -48,6 +51,7 @@ public class LoginServlet extends HttpServlet {
             String msjError = "Email o contraseña invalidas";
             request.setAttribute("error", msjError);
             request.getRequestDispatcher("").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/jsp/index.jsp").forward(request, response);
             
         } else if(usuario.getRol().equals("Vendedor")){
             HttpSession session = request.getSession();
@@ -64,6 +68,12 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("usuario", usuario);
             response.sendRedirect(request.getContextPath() + "/AdministradorUsuariosServlet");
+            
+        } else if(usuario.getRol().equals("Marketing")){
+            HttpSession session = request.getSession();
+            session.setAttribute("usuario", usuario);
+            response.sendRedirect(request.getContextPath() + "/MarketingMenuServlet");
+            
         }
     }
 

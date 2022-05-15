@@ -83,11 +83,11 @@
                     <tbody>
                         <tr>
                             <td>Email:</td>
-                            <td><input type="text" name="email" value="" /></td>
+                            <td><input required type="text" name="email" value="" /></td>
                         </tr>
                         <tr>
                             <td>Contraseña:</td>
-                            <td><input type="password" name="password" value="" /></td>
+                            <td><input required type="password" name="password" value="" /></td>
                         </tr>
                         <tr>
                             <td><input type="submit" value="Iniciar" /></td>
@@ -99,6 +99,11 @@
 
         <div class="footer">
             <p>Footer</p>
+<<<<<<< HEAD
+            <p>footer</p>
+=======
+            <p>© 2022 EbayTAW, Inc</p>
+>>>>>>> main
         </div>
         
         
