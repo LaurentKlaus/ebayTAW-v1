@@ -218,7 +218,6 @@ public class Products implements Serializable {
         return "Entity.Products[ productID=" + productID + " ]";
     }
     
-    // MIGUEL
     public ProductsDTO toDTO(){
         ProductsDTO dto = new ProductsDTO();
         dto.setProductID(productID);
