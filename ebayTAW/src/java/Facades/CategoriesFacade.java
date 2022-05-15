@@ -6,11 +6,9 @@
 package Facades;
 
 import Entity.Categories;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
@@ -31,19 +29,4 @@ public class CategoriesFacade extends AbstractFacade<Categories> {
         super(Categories.class);
     }
     
-    // Miguel
-    public List<Categories> findAllByNombre(String nombre){
-        Query q = this.getEntityManager().createQuery("select c from Categories c where c.name like :nombre");
-        q.setParameter("nombre", '%' + nombre + '%');
-        return q.getResultList();
-    }
-    
-    // Miguel
-    public Categories findByNombre(String name) {
-        Query q;
-        q = this.getEntityManager().createQuery("SELECT c FROM Categories c WHERE c.name = :name");
-        q.setParameter("name", name);
-        
-        return (Categories)q.getSingleResult();
-    }
 }
