@@ -2,6 +2,7 @@ package Entity;
 
 import Entity.Bids;
 import Entity.Categoriesuser;
+import Entity.Followbids;
 import Entity.Products;
 import Entity.Studies;
 import javax.annotation.Generated;
@@ -14,6 +15,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 public class Users_ { 
 
     public static volatile ListAttribute<Users, Products> productsList;
+    public static volatile ListAttribute<Users, Followbids> followbidsList;
     public static volatile SingularAttribute<Users, String> gender;
     public static volatile SingularAttribute<Users, String> city;
     public static volatile ListAttribute<Users, Studies> studiesList;

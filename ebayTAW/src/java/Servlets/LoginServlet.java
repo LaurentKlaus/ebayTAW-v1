@@ -51,11 +51,18 @@ public class LoginServlet extends HttpServlet {
             String msjError = "Email o contraseña invalidas";
             request.setAttribute("error", msjError);
             request.getRequestDispatcher("WEB-INF/jsp/index.jsp").forward(request, response);
+            request.getRequestDispatcher("").forward(request, response);
             
         } else if(usuario.getRol().equals("Vendedor")){
             HttpSession session = request.getSession();
             session.setAttribute("usuario", usuario);
             response.sendRedirect(request.getContextPath()+"/ProductosVendedorServlet");
+            //response.sendRedirect(request.getContextPath() + "/VendedorServlet");
+        
+        } else if(usuario.getRol().equalsIgnoreCase("Comprador")){
+            HttpSession session = request.getSession();
+            session.setAttribute("usuario", usuario);
+            response.sendRedirect(request.getContextPath() + "/CompradorServlet");
             
         } else if(usuario.getRol().equals("Administrador")){
             HttpSession session = request.getSession();
