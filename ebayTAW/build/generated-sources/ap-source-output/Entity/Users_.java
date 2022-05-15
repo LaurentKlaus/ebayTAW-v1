@@ -2,7 +2,6 @@ package Entity;
 
 import Entity.Bids;
 import Entity.Categoriesuser;
-import Entity.Followbids;
 import Entity.Products;
 import Entity.Studies;
 import javax.annotation.Generated;
@@ -10,12 +9,11 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2022-05-15T21:39:57")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2022-05-13T19:21:21")
 @StaticMetamodel(Users.class)
 public class Users_ { 
 
     public static volatile ListAttribute<Users, Products> productsList;
-    public static volatile ListAttribute<Users, Followbids> followbidsList;
     public static volatile SingularAttribute<Users, String> gender;
     public static volatile SingularAttribute<Users, String> city;
     public static volatile ListAttribute<Users, Studies> studiesList;

@@ -39,7 +39,27 @@ public class AdministradorUsuariosServlet extends SampleTAWServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (super.comprobarSession(request, response)){
-            List<UserDTO> usuarios = this.userService.listarUsuarios();
+            String username = request.getParameter("username");
+            String email = request.getParameter("email");
+            String rol = request.getParameter("rol");
+            String name = request.getParameter("name");
+            String surname = request.getParameter("surname");
+            String gender = request.getParameter("gender");
+            String numberStr = request.getParameter("number");
+            Integer number = null;
+            if(numberStr != null && !numberStr.isEmpty()){
+                number = Integer.parseInt(numberStr);
+            }
+            String street = request.getParameter("street");
+            String city = request.getParameter("city");
+            String region = request.getParameter("region");
+            String postalCodeStr = request.getParameter("postalCode");
+            Integer postalCode = null;
+            if(postalCodeStr != null && !postalCodeStr.isEmpty()){
+                postalCode = Integer.parseInt(postalCodeStr);
+            }
+            
+            List<UserDTO> usuarios = this.userService.listarUsuarios(rol, username, email, name, surname, gender, street, number, city, region, postalCode);
             
             request.setAttribute("usuarios", usuarios);
             request.getRequestDispatcher("/WEB-INF/Administrador/administrador_usuarios.jsp").forward(request, response);

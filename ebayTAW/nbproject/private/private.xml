@@ -3,46 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/jsp/index.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Facades/ProductsFacade.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/DTO/UserDTO.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/setup/glassfish-resources.xml</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/Administrador/administrador_productos.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/newUserVendedorServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/ProductosVendedorServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/Vendedor/registroVendedor.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/LoginServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/Comprador/registroComprador.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Facades/FollowbidsFacade.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/DTO/FollowbidsDTO.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/DTO/BidsDTO.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/Vendedor/vendedor.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/DTO/CategoriesDTO.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Service/FollowbidsService.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Entity/Products.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Entity/Followbids.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Entity/Bids.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/CompradorServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/Vendedor/productos.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/conf/persistence.xml</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Service/ProductService.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/ProductosEnVentaCompradorServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Service/UserService.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/Comprador/productosPujados.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/SampleTAWServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/RegistrarCompradorServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/Comprador/comprador.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Service/CategoriesService.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Entity/Users.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Service/BidsService.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/ProductosPujadosCompradorServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/web/WEB-INF/Comprador/productosEnVenta.jsp</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/DTO/ProductsDTO.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Facades/BidsFacade.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Entity/Categories.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Facades/AbstractFacade.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/homeRegisterServlet.java</file>
-            <file>file:/C:/Users/34637/Desktop/Application_Web_2022/Projets_G20/ebayTAW/ebayTAW/src/java/Servlets/ProductoGuardarServlet.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Service/ProductService.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Facades/StudiesFacade.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Facades/CategoriesuserFacade.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Service/UserService.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/web/WEB-INF/Vendedor/vendedor_registro.jsp</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Facades/BidsFacade.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Entity/Users.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Entity/Categories.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Facades/ProductsFacade.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Service/CategoryService.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Entity/Bids.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Entity/Studies.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/DTO/ProductsDTO.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Facades/AbstractFacade.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Entity/Products.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/DTO/CategoriesDTO.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Facades/UsersFacade.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Servlets/VendedorToHome.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/DTO/UserDTO.java</file>
+            <file>file:/C:/Users/mjura/Documents/GitHub/ebayTAW/ebayTAW/src/java/Facades/CategoriesFacade.java</file>
         </group>
     </open-files>
 </project-private>
