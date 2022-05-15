@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,8 +48,11 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Users.findByPostalCode", query = "SELECT u FROM Users u WHERE u.postalCode = :postalCode")})
 public class Users implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID", fetch = FetchType.LAZY)
-    private List<Followbids> followbidsList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
+    private List<Mensaje> mensajeList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
+    private List<Usuarioslista> usuarioslistaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -290,6 +292,7 @@ public class Users implements Serializable {
         return "Entity.Users[ userID=" + userID + " ]";
     }
     
+    // MIGUEL
     public UserDTO toDTO(){
         UserDTO dto = new UserDTO();
         dto.setUserID(userID);
@@ -307,16 +310,24 @@ public class Users implements Serializable {
         dto.setPostalCode(postalCode);
         
         return dto;
-       
     }
 
     @XmlTransient
-    public List<Followbids> getFollowbidsList() {
-        return followbidsList;
+    public List<Usuarioslista> getUsuarioslistaList() {
+        return usuarioslistaList;
     }
 
-    public void setFollowbidsList(List<Followbids> followbidsList) {
-        this.followbidsList = followbidsList;
+    public void setUsuarioslistaList(List<Usuarioslista> usuarioslistaList) {
+        this.usuarioslistaList = usuarioslistaList;
+    }
+
+    @XmlTransient
+    public List<Mensaje> getMensajeList() {
+        return mensajeList;
+    }
+
+    public void setMensajeList(List<Mensaje> mensajeList) {
+        this.mensajeList = mensajeList;
     }
     
 }

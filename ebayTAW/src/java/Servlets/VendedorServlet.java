@@ -3,10 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// MIGUEL JURADO VAZQUEZ
+
 package Servlets;
 
+import DTO.CategoriesDTO;
+import Service.CategoryService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +25,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author mjura
  */
 @WebServlet(name = "VendedorServlet", urlPatterns = {"/VendedorServlet"})
-public class VendedorServlet extends HttpServlet {
+public class VendedorServlet extends SampleTAWServlet {
 
+    
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,8 +40,10 @@ public class VendedorServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("WEB-INF/Vendedor/productos.jsp").forward(request, response);
-        
+        if (super.comprobarSession(request, response)){
+
+            request.getRequestDispatcher("WEB-INF/Vendedor/vendedor_listado_productos.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

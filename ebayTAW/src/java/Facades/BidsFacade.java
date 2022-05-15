@@ -5,13 +5,10 @@
  */
 package Facades;
 
-import DTO.BidsDTO;
 import Entity.Bids;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
@@ -30,28 +27,6 @@ public class BidsFacade extends AbstractFacade<Bids> {
 
     public BidsFacade() {
         super(Bids.class);
-    }
-
-    public List<Bids> findByUserId(Integer usuarioId) {
-        Query q;
-        
-        q = em.createQuery("SELECT b FROM Bids b WHERE b.userID.userID = :usuarioId");
-        q.setParameter("usuarioId", usuarioId);
-        
-        return q.getResultList();
-    }
-
-    public Bids findByProductAndUser(Integer usuarioId, Integer productoId) {
-        Query q;
-        
-        q = em.createQuery("SELECT b FROM Bids b WHERE b.userID.userID = :usuarioId AND b.productID.productID = :productoId");
-        q.setParameter("usuarioId", usuarioId);
-        q.setParameter("productoId", productoId);
-
-        List<Bids> listaPujas = q.getResultList();
-        Bids puja = (listaPujas != null && !listaPujas.isEmpty()) ? listaPujas.get(0) : null;
-        
-        return puja ;
     }
     
 }

@@ -124,13 +124,13 @@ public class Categories implements Serializable {
         return "Entity.Categories[ categoryID=" + categoryID + " ]";
     }
     
-    public CategoriesDTO toDTO() {
+    // CRISTOBAL
+    public CategoriesDTO toDTO(){
         CategoriesDTO dto = new CategoriesDTO();
+        
         dto.setCategoryID(categoryID);
         dto.setName(name);
-        dto.setCategoriesuserList(categoriesuserList);
-        dto.setProductsList(productsList);
         
-        return dto; 
+        return dto;
     }
 }
