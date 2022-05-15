@@ -9,11 +9,6 @@ import Entity.Bids;
 import Entity.Categories;
 import Entity.Users;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -125,43 +120,5 @@ public class ProductsDTO {
         this.isSold = isSold;
     }
     
-    public String getStartDateToString() { 
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd.MM.yyyy");
-        SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm");
-        
-        StringBuilder fechaAdaptada = new StringBuilder();
-        fechaAdaptada.append(formatoFecha.format(this.startDate));
-        fechaAdaptada.append(" a las ");
-        fechaAdaptada.append(formatoHora.format(this.startDate));
-        
-        return fechaAdaptada.toString();
-    }
     
-    public String getFinishDateToString() {
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd.MM.yyyy");
-        SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm");
-        
-        StringBuilder fechaAdaptada = new StringBuilder();
-        fechaAdaptada.append(formatoFecha.format(this.finishDate));
-        fechaAdaptada.append(" a las ");
-        fechaAdaptada.append(formatoHora.format(this.finishDate));
-        
-        return fechaAdaptada.toString();
-    }
-    
-    public Bids lastBidPrice() {
-        Bids mayorPuja = null;
-        
-        if (this.getBidsList() != null && !this.getBidsList().isEmpty()) {
-            mayorPuja = this.getBidsList().get(0);
-        
-            for (Bids puja : this.getBidsList()) {
-                if (puja.getPriceBid().compareTo(mayorPuja.getPriceBid()) == 1) {
-                    mayorPuja = puja;
-                }
-            } 
-        }
-        
-        return mayorPuja;
-    }
 }
