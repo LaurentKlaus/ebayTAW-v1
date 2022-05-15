@@ -46,6 +46,12 @@ public class UsersFacade extends AbstractFacade<Users> {
         }
     }
     
+    public List<Users> getUsuarios(){
+        Query q = this.getEntityManager().createQuery("select u from Users");
+        
+        return q.getResultList();
+    }
+    
     // Cristobal
     public List<Users> getUsuarios(String rol, String username, String email, String name, 
             String surname, String gender, String street, Integer number, 

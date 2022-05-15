@@ -72,6 +72,7 @@
         <div class="topnav">
             <li style="float:right"><a class="active" href="">Home</a></li>
             <li style="float:right"><a class="active" href="homeRegisterServlet">Registrate como vendedor</a></li>
+            <li style="float:right"><a class="active" href="RegistrarCompradorServlet">Regístrate como comprador</a></li>
         </div>
 
         <div class="content">
@@ -97,7 +98,12 @@
         </div>
 
         <div class="footer">
+            <p>Footer</p>
+<<<<<<< HEAD
+            <p>footer</p>
+=======
             <p>© 2022 EbayTAW, Inc</p>
+>>>>>>> main
         </div>
         
         

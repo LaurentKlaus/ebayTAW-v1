@@ -8,11 +8,13 @@ package Service;
 import DTO.UserDTO;
 import Entity.Users;
 import Facades.UsersFacade;
+import Facades.UsuarioslistaFacade;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,8 +28,8 @@ public class UserService {
         return lista.stream().map(u -> u.toDTO()).collect(Collectors.toList());
     }
 
-    @EJB
-    UsersFacade uf;
+    @EJB UsersFacade uf;
+    @EJB UsuarioslistaFacade ulf;
 
     // Miguel y Cristobal
     public UserDTO comprobarCredenciales(String email, String pass) {
@@ -88,16 +90,43 @@ public class UserService {
             region = null;
         }
         vendedor.setRegion(region);
+        vendedor.setPostalCode(cpostal);
         
 
         this.uf.create(vendedor);
     }
+    
+    public void crearComprador(String nombreUsuario, String correo, String contrasena, 
+            String nombre, String apellidos, String sexo, String calle, 
+            Integer numero, String ciudad, Integer codigoPostal, String region){
+        Users comprador = new Users();
+        // Relleno los datos
+        comprador.setRol("Comprador");
+        comprador.setUsername(nombreUsuario);
+        comprador.setPassword(contrasena);
+        comprador.setEmail(correo);
+        comprador.setName(nombre);
+        comprador.setSurname(apellidos);
+        comprador.setGender(sexo);
+        comprador.setStreet(calle);
+        comprador.setNumber(numero);
+        comprador.setCity(ciudad);
+        comprador.setRegion(region);
+        comprador.setPostalCode(codigoPostal);
+        this.uf.create(comprador);
+    }
+    
+    public List<UserDTO> listarUsuarios(){
+        List<Users> users = null;
 
     public List<UserDTO> listarUsuarios() {
         List<Users> users = this.uf.findAll();
 
         return this.listaEntityADTO(users);
     }
+    
+    public UserDTO buscarUsuario(Integer usuarioId) {
+        return this.uf.find(usuarioId).toDTO();
 
     //Cristobal
     public List<UserDTO> listarUsuarios(String rol, String username, String email, String name,
@@ -206,5 +235,19 @@ public class UserService {
         System.out.println(rol + ", " + username + ", " + email + ", " + name + ", " + surname + ", " + gender + ", " + street + ", " + number + ", " + city + ", " + region + ", " + postalCode);
         
         this.uf.create(user);
+    }
+    
+    public Users findUser(Integer usuarioId) {
+        return this.uf.find(usuarioId);
+
+    // Antonio
+    public List<UserDTO> usuariosDTODeUnaLista(int idList) {
+       
+        return this.ulf.getUsuariosDTOEnUnaLista(idList);
+        
+    }
+
+    public List<UserDTO> listarUsuariosFiltrado(String nombreUsuario, String orderBy) {
+        return this.uf.listarUsuariosFiltrado(nombreUsuario,orderBy);
     }
 }

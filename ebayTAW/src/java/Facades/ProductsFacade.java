@@ -5,11 +5,13 @@
  */
 package Facades;
 
+import DTO.ProductsDTO;
 import DTO.CategoriesDTO;
 import DTO.ProductsDTO;
 import DTO.UserDTO;
 import Entity.Bids;
 import Entity.Products;
+import java.util.Arrays;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
@@ -61,6 +63,9 @@ public class ProductsFacade extends AbstractFacade<Products> {
         q.setParameter("vendedor", vendedor.getUserID());
         return q.getResultList();
     }
+
+    public List<Products> findById(List<Integer> listaProductosId) {
+        Query q;
     
     //Cristobal
     public List<Products> findAll(String title, Integer userId, Integer categoryId, BigDecimal initialPrice, Date startDate, Date finishDate, Boolean isSold){
@@ -70,6 +75,8 @@ public class ProductsFacade extends AbstractFacade<Products> {
     public List<Products> findById(List<Integer> listaProductosId) {
         Query q;
         
+        q = em.createQuery("SELECT p FROM Products p WHERE p.productID IN :listaProductosId");
+        q.setParameter("listaProductosId", listaProductosId);
         if(title != null || title.isEmpty()){
             queryStr += " p.title like :title";
             parameters.put("title", '%' + title + '%');
@@ -77,6 +84,11 @@ public class ProductsFacade extends AbstractFacade<Products> {
         q = em.createQuery("SELECT p FROM Products p WHERE p.productID IN :listaProductosId");
         q.setParameter("listaProductosId", listaProductosId);
         
+        return q.getResultList();
+    }
+
+    public List<Products> findByIdAndTitleDescription(List<Integer> listaProductosId, String filtroTituloDescripcion) {
+        Query q;
         if(userId != null){
             if(parameters.size() > 0){
                 queryStr += " and";
@@ -90,6 +102,9 @@ public class ProductsFacade extends AbstractFacade<Products> {
     public List<Products> findByIdAndTitleDescription(List<Integer> listaProductosId, String filtroTituloDescripcion) {
         Query q;
         
+        q = em.createQuery("SELECT p FROM Products p WHERE p.productID IN :listaProductosId AND (p.title LIKE :filtroTituloDescripcion OR p.description LIKE :filtroTituloDescripcion)");
+        q.setParameter("listaProductosId", listaProductosId);
+        q.setParameter("filtroTituloDescripcion", "%" + filtroTituloDescripcion + "%");
         if(categoryId != null){
             if(parameters.size() > 0){
                 queryStr += " and";
@@ -98,6 +113,10 @@ public class ProductsFacade extends AbstractFacade<Products> {
             parameters.put("categoryID", categoryId);
         }
         
+        return q.getResultList();
+    }
+
+    public List<Products> findByIdAndTitleDescriptionAndCategory(List<Integer> listaProductosId, String filtroTituloDescripcion, String[] filtroCategoria) {
         if(initialPrice != null){
             if(parameters.size() > 0){
                 queryStr += " and";
@@ -111,6 +130,10 @@ public class ProductsFacade extends AbstractFacade<Products> {
     public List<Products> findByIdAndTitleDescriptionAndCategory(List<Integer> listaProductosId, String filtroTituloDescripcion, String[] filtroCategoria) {
         Query q;
         
+        q = em.createQuery("SELECT p FROM Products p WHERE p.productID IN :listaProductosId AND (p.title LIKE :filtroTituloDescripcion OR p.description LIKE :filtroTituloDescripcion) AND p.categoryID.name IN :filtroCategoria");
+        q.setParameter("listaProductosId", listaProductosId);
+        q.setParameter("filtroTituloDescripcion", "%" + filtroTituloDescripcion + "%");
+        q.setParameter("filtroCategoria", Arrays.asList(filtroCategoria));
         if(startDate != null){
             if(parameters.size() > 0){
                 queryStr += " and";
@@ -123,6 +146,11 @@ public class ProductsFacade extends AbstractFacade<Products> {
         q.setParameter("filtroTituloDescripcion", "%" + filtroTituloDescripcion + "%");
         q.setParameter("filtroCategoria", Arrays.asList(filtroCategoria));
         
+        return q.getResultList();
+    }
+
+    public List<Products> findByIdAndCategory(List<Integer> listaProductosId, String[] filtroCategoria) {
+        Query q;
         if(finishDate != null){
             if(parameters.size() > 0){
                 queryStr += " and";
@@ -136,6 +164,9 @@ public class ProductsFacade extends AbstractFacade<Products> {
     public List<Products> findByIdAndCategory(List<Integer> listaProductosId, String[] filtroCategoria) {
         Query q;
         
+        q = em.createQuery("SELECT p FROM Products p WHERE p.productID IN :listaProductosId AND p.categoryID.name IN :filtroCategoria");
+        q.setParameter("listaProductosId", listaProductosId);
+        q.setParameter("filtroCategoria", Arrays.asList(filtroCategoria));
         if(isSold != null){
             if(parameters.size() > 0){
                 queryStr += " and";
@@ -147,8 +178,34 @@ public class ProductsFacade extends AbstractFacade<Products> {
         q.setParameter("listaProductosId", listaProductosId);
         q.setParameter("filtroCategoria", Arrays.asList(filtroCategoria));
         
+        return q.getResultList();
+    }
+
+    public List<Products> findByTitleDescriptionAndCategory(String filtroTituloDescripcion, String[] filtroCategoria) {
+        Query q;
+        
+        q = em.createQuery("SELECT p FROM Products p WHERE (p.title LIKE :filtroTituloDescripcion OR p.description LIKE :filtroTituloDescripcion) AND p.categoryID.name IN :filtroCategoria");
+        q.setParameter("filtroTituloDescripcion", "%" + filtroTituloDescripcion + "%");
+        q.setParameter("filtroCategoria", Arrays.asList(filtroCategoria));
+        
+        return q.getResultList();
+    }
+
+    public List<Products> findByTitleDescription(String filtroTituloDescripcion) {
+        Query q;
+        
+        q = em.createQuery("SELECT p FROM Products p WHERE (p.title LIKE :filtroTituloDescripcion OR p.description LIKE :filtroTituloDescripcion)");
+        q.setParameter("filtroTituloDescripcion", "%" + filtroTituloDescripcion + "%");
+        
+        return q.getResultList();
+    }
+
+    public List<Products> findByCategory(String[] filtroCategoria) {
+        Query q;
         Query q = this.getEntityManager().createQuery(queryStr);
         
+        q = em.createQuery("SELECT p FROM Products p WHERE p.categoryID.name IN :filtroCategoria");
+        q.setParameter("filtroCategoria", Arrays.asList(filtroCategoria));
         for(String k:parameters.keySet()){
             q.setParameter(k, parameters.get(k));
         }

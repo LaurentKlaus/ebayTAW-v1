@@ -50,6 +50,7 @@ public class LoginServlet extends HttpServlet {
         if (usuario == null){
             String msjError = "Email o contraseña invalidas";
             request.setAttribute("error", msjError);
+            request.getRequestDispatcher("").forward(request, response);
             request.getRequestDispatcher("WEB-INF/jsp/index.jsp").forward(request, response);
             request.getRequestDispatcher("").forward(request, response);
             

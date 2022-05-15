@@ -9,5 +9,6 @@
     <property name="User" value="ebay"/>
     <property name="Password" value="ebay"/>
     <property name="useSSL" value="false"/>
+    <property name="allowPublicKeyRetrieval" value="true"/>
   </jdbc-connection-pool>
 </resources>
